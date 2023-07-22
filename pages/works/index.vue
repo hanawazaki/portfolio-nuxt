@@ -29,7 +29,7 @@
 
     <!-- mobile -->
     <div class="pills px-0 md:px-5 mb-8 xs:h-10 block sm-custom:hidden">
-      <Carousel :settings="settings">
+      <Carousel :settings="settings" :items-to-show="4.5">
         <Slide v-for="(pill, index) in pills" :key="index">
           <Pill
             :isSelected="selectedSkill"
@@ -71,6 +71,7 @@ import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import Pill from "../../components/Pill.vue";
 import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
+import "vue3-carousel/dist/carousel.css";
 
 const pills = ref([
   "Javascript",
