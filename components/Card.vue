@@ -39,15 +39,17 @@
       <p class="card-text text-xs lg:text-base">
         {{ project.description }}
       </p>
-      <div class="card-categories flex justify-between mt-8 items-center">
-        <div class="pills flex justify-between">
-          <Pill
-            :categories="pill"
-            v-for="(pill, index) in project.categories"
-            :key="index"
-            size="sm"
-            isSelected=""
-          />
+      <div class="card-categories flex mt-8 items-center">
+        <div
+          class="pills"
+          v-for="(skill, index) in project.categories"
+          :key="index"
+        >
+          <div
+            class="border border-black px-2 py-2 md:px-4 md:py-2 rounded-full w-auto mr-2 mb-2 transition-all ease-in duration-200 font-medium text-xs md:text-xs xxl:text-base"
+          >
+            {{ skill }}
+          </div>
         </div>
       </div>
       <!--  -->

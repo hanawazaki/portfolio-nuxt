@@ -1,6 +1,6 @@
 <template>
   <!-- nav hero -->
-  <section class="hero mt-8 md:my-[100px]">
+  <section class="hero my-8 md:my-[100px]">
     <div class="container">
       <div class="flex flex-col sm:flex-row items-center">
         <div class="left w-full md:mb-0 sm:w-6/12">
@@ -67,7 +67,7 @@
       class="contact__box flex flex-col justify-between text-center md:px-8 md:py-12 border border-black rounded-xl px-5 py-5 xl:pl-[122px]"
     >
       <div class="contact__text mb-8 md:w-auto">
-        <h4 class="font-medium text-28xl md:text-4xl md:mb-8">
+        <h4 class="font-medium text-2xl md:text-4xl md:mb-8">
           Want to work together?
         </h4>
         <p class="font-normal text-md md:text-2xl xl:w-700">

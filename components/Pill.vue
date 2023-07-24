@@ -1,6 +1,5 @@
 <template>
-  <RouterLink
-    :to="`/works?filter=${categories}`"
+  <button
     @click="() => handleFilter(categories)"
     class="border border-black rounded-full w-auto mr-2 mb-2 transition-all ease-in duration-200 font-medium text-xs md:text-xs xxl:text-base hover:bg-black hover:text-white"
     :class="{
@@ -10,13 +9,11 @@
     }"
   >
     {{ categories }}
-  </RouterLink>
+  </button>
 </template>
 
 <script setup>
 import { ref } from "vue";
-
-const skill = ref("");
 
 const props = defineProps({
   categories: {
@@ -30,17 +27,16 @@ const props = defineProps({
   },
   isSelected: {
     type: String,
-    required: true,
+    default: "All",
   },
 });
 
-// console.log("selectedSkill", isSelected);
+const selectedPill = ref("");
 //
 const emit = defineEmits(["filter"]);
 
 const handleFilter = (categories) => {
-  skill.value = categories;
-  emit("filter", skill.value);
-  console.log("child", categories);
+  selectedPill.value = categories;
+  emit("filter", selectedPill.value);
 };
 </script>

@@ -16,12 +16,13 @@
         v-for="(pill, index) in pills"
         :key="index"
         @filter="handleFilter"
+        v-model="selectedSkill"
       />
 
       <RouterLink
         to="/works"
         class="border border-black px-4 py-2 rounded-full w-auto mr-2 mb-2 transition-all ease-in duration-200 font-medium md:text-xs xxl:text-base hover:bg-black hover:text-white"
-        @click="() => handleFilter(categories)"
+        @click="() => handleFilter(selectedSkill)"
       >
         All
       </RouterLink>
@@ -29,23 +30,11 @@
 
     <!-- mobile -->
     <div class="pills px-0 md:px-5 mb-8 xs:h-10 block sm-custom:hidden">
-      <Carousel :settings="settings" :items-to-show="4.5">
-        <Slide v-for="(pill, index) in pills" :key="index">
-          <Pill
-            :isSelected="selectedSkill"
-            size="lg"
-            :categories="pill"
-            @filter="handleFilter"
-          />
-        </Slide>
-        <RouterLink
-          to="/works"
-          class="border border-black px-4 py-2 rounded-full w-auto mr-2 mb-2 transition-all ease-in duration-200 font-medium md:text-xs xxl:text-base hover:bg-black hover:text-white"
-          @click="() => handleFilter(categories)"
-        >
-          All
-        </RouterLink>
-      </Carousel>
+      <SelectInput
+        :options="pills"
+        v-model="selectedSkill"
+        @click="handleFilterSelect"
+      />
     </div>
     <div
       v-if="filteredProjects.length > 0"
@@ -68,7 +57,6 @@
 <script setup>
 import Card from "../../components/Card.vue";
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
 import Pill from "../../components/Pill.vue";
 import { Carousel, Slide, Navigation, Pagination } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
@@ -125,34 +113,33 @@ const settings = ref({
 });
 
 const filteredProjects = ref([]);
-const selectedSkill = ref();
+const selectedSkill = ref("");
 
-const router = useRouter();
 onMounted(() => {
-  const currentRoute = router.currentRoute.path;
-  const getFilter = router.currentRoute.value.query.filter;
-
-  selectedSkill.value = getFilter;
-  console.log("getFilter", getFilter);
-  console.log("selectedSkill", selectedSkill.value);
-  if (getFilter) {
-    handleFilter(getFilter);
-  } else {
-    filteredProjects.value = projects.value;
-  }
+  filteredProjects.value = projects.value;
 });
 
 const handleFilter = (skill) => {
-  selectedSkill.value = skill;
-
-  if (skill !== "" && skill !== undefined) {
+  if (skill === "") {
+    filteredProjects.value = projects.value;
+  } else {
     filteredProjects.value = projects.value.filter((item) =>
       item.categories
         .map((category) => category.toLowerCase())
         .includes(skill.toLowerCase())
     );
-  } else {
+  }
+};
+
+const handleFilterSelect = () => {
+  if (selectedSkill.value === "") {
     filteredProjects.value = projects.value;
+  } else {
+    filteredProjects.value = projects.value.filter((item) =>
+      item.categories
+        .map((category) => category.toLowerCase())
+        .includes(selectedSkill.value.toLowerCase())
+    );
   }
 };
 
