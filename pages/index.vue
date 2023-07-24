@@ -55,7 +55,7 @@
         :key="index"
       />
     </div>
-    <routerLink to="/projects" class="">
+    <routerLink to="/works" class="">
       <h4 class="text-center md:mt-5 text-lg font-medium">
         View all projects &UpperRightArrow;
       </h4>
