@@ -1,40 +1,42 @@
 <template>
   <!-- nav hero -->
-  <section class="hero my-8 md:my-[100px]">
-    <div class="container">
-      <div class="flex flex-col sm:flex-row items-center">
-        <div class="left w-full md:mb-0 sm:w-6/12">
-          <h1
-            class="text-[20px] leading-[45px] font-medium md:text-lg lg:text-2xl"
-          >
-            I'm Hairul A Nawazaki
-          </h1>
-          <h1
-            class="text-[40px] leading-[45px] font-medium mb-3 md:text-5xl lg:text-[60px] xl:text-[70px] lg:leading-[60px]"
-          >
-            Web Developer
-          </h1>
-          <div class="contact-me mb-[20px] lg:pr-32">
-            <h5
-              class="text-sm leading-[17.2px] font-normal md:text-lg xxl:text-xl"
-            >
-              Experienced web artisan building desktop & mobile responsive
-              websites and web app
-            </h5>
+  <section class="hero my-8 md:my-[75px] mx-auto max-w-7xl">
+    <div class="w-full px-2 sm:px-6 lg:px-[100px]">
+      <div class="flex flex-col sm:flex-row sm:justify-between items-center">
+        <div class="left w-full md:mb-0 sm:w-6/12 sm:max-w-[432px]">
+          <div class="hero-text-wrapper flex flex-col gap-4">
+            <div class="heading-hero">
+              <h1 class="text-lg font-medium">I'm Hairul Ardhan Nawazaki</h1>
+              <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-medium mb-3 md:mb-0"
+              >
+                Frontend <br />Web Developer
+              </h1>
+            </div>
+            <div class="contact-me mb-5">
+              <h5
+                class="text-sm font-normal sm:text-sm lg:text-lg sm:pr-5 md:text-lg"
+              >
+                Helping you understand your desired tech experience through
+                websites and apps
+              </h5>
+            </div>
           </div>
           <button
             @click="scrollMe"
             class="btn-download p-[8px] rounded-[12px] text-[20px] border border-black md:p-[12px] transition-all ease-in duration-200 hover:bg-black hover:text-white"
           >
             <span class="flex flex-row font-normal text-lg md:text-sm">
-              Contact me</span
+              Lets connect!</span
             >
           </button>
         </div>
-        <div class="right hidden w-full sm:w-6/12 flex sm:block">
+        <div
+          class="right hidden w-full sm:w-6/12 sm:flex max-w-[529px] max-h-[360px]"
+        >
           <img
-            class="img-hero"
-            src="../assets/images/hero-cat.svg"
+            class="img-hero w-full inline-block"
+            src="../assets/images/hero-image.png"
             alt="hero-img"
           />
         </div>
@@ -42,7 +44,7 @@
     </div>
   </section>
   <!-- projects -->
-  <section class="projects mt-100px mb-10 md:mb-100px">
+  <section class="projects mt-100px mb-10 md:mb-100px mx-auto max-w-[1080px]">
     <h1 class="projects__title text-2xl font-medium text-center mb-8">
       My latest projects
     </h1>
@@ -62,16 +64,15 @@
     </routerLink>
   </section>
   <!-- contact -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact max-w-[1080px] mx-auto">
     <div
       class="contact__box flex flex-col justify-between text-center md:px-8 md:py-12 border border-black rounded-xl px-5 py-5 xl:pl-[122px]"
     >
       <div class="contact__text mb-8 md:w-auto">
-        <h4 class="font-medium text-2xl md:text-4xl md:mb-8">
-          Want to work together?
-        </h4>
+        <h4 class="font-medium text-2xl md:text-4xl md:mb-8">Let's connect!</h4>
         <p class="font-normal text-md md:text-2xl xl:w-700">
-          Feel free to reach out for collaborations or just a friendly hello
+          Is there a project of mine that is similar to your needs?
+          <br />let's work together or just send me friendly hello
         </p>
       </div>
       <div
@@ -140,9 +141,9 @@ const breakpoints = ref({
 });
 </script>
 
-<style scoped>
+<style>
 .img-hero {
-  width: 586px;
+  margin-right: 0 !important;
 }
 
 .contact__box {

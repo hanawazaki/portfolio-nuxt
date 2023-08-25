@@ -1,5 +1,5 @@
 <template>
-  <div class="px-4 md:px-[30px]">
+  <div class="px-4 md:px-[0px]">
     <Header />
     <div class="container mx-auto">
       <slot />

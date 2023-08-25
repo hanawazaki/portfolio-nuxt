@@ -1,12 +1,22 @@
 <template>
-  <header class="mt-4 bg-white">
-    <nav class="container mx-auto py-4 flex justify-between">
-      <img src="../assets/images/logo-name.svg" alt="logo" class="w-32" />
+  <header class="bg-white">
+    <nav
+      class="pt-12 items-center flex justify-between mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
+    >
+      <RouterLink class="logo" to="/">
+        <img
+          alt="logo"
+          class="w-auto transition-all ease-out duration-300"
+          :src="isHovered ? hoveredImageSrc : originalImageSrc"
+          @mouseover="toggleHover(true)"
+          @mouseout="toggleHover(false)"
+        />
+      </RouterLink>
       <div class="w-full"></div>
       <div class="navigation__nav w-auto">
         <ul
           id="menu"
-          class="navigation__list fixed bg-white inset-0 flex flex-col items-center justify-center lg:visible lg:flex-row lg:bg-transparent lg:relative lg:opacity-100"
+          class="navigation__list fixed bg-white inset-0 flex flex-col items-center justify-center mds:visible mds:flex-row mds:bg-transparent mds:relative mds:opacity-100"
           :class="[
             toggle ? 'opacity-0' : 'opacity-100 z-30',
             toggle ? 'invisible' : '',
@@ -41,7 +51,7 @@
           </li>
         </ul>
       </div>
-      <div class="w-auto lg:hidden">
+      <div class="w-auto mds:hidden">
         <button
           :class="[
             toggle ? '' : 'fixed',
@@ -79,12 +89,36 @@
 
 <script setup>
 import { ref } from "vue";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuItems,
+} from "@headlessui/vue";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/vue/24/outline";
+
+const navigation = [
+  { name: "Dashboard", href: "#", current: true },
+  { name: "Team", href: "#", current: false },
+  { name: "Projects", href: "#", current: false },
+  { name: "Calendar", href: "#", current: false },
+];
 
 const toggle = ref(true);
+const isHovered = ref(false);
+const hoveredImageSrc = ref("../assets/images/logo-hover.svg");
+const originalImageSrc = ref("../assets/images/logo.svg");
 
 const handleToggle = () => {
   toggle.value = !toggle.value;
   console.log(toggle.value);
+};
+
+const toggleHover = (val) => {
+  isHovered.value = val;
 };
 </script>
 
@@ -99,5 +133,12 @@ const handleToggle = () => {
   .router-link-exact-active {
     @apply border-b-2 border-black text-black;
   }
+}
+
+.router-link-active.logo {
+  border-bottom-width: 0;
+}
+
+.logo {
 }
 </style>

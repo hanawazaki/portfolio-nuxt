@@ -1,14 +1,12 @@
 <template>
   <section
-    class="projects mt-8 mb-10 md:mb-100px md:mt-[100px] lg:max-w-[80%] mx-auto"
+    class="projects mt-8 mb-10 md:mb-100px md:mt-[75px] lg:max-w-[80%] mx-auto"
   >
     <h1 class="projects__title text-2xl font-medium text-center mb-8">
       My Projects
     </h1>
     <!-- desktop -->
-    <div
-      class="pills flex-row flex-wrap px-0 md:px-5 mb-8 xs:h-10 hidden sm-custom:flex"
-    >
+    <div class="hidden pills flex-row flex-wrap px-0 md:px-5 mb-8 xs:h-10">
       <Pill
         :isSelected="selectedSkill"
         size="lg"
@@ -29,7 +27,7 @@
     </div>
 
     <!-- mobile -->
-    <div class="pills px-0 md:px-5 mb-8 xs:h-10 block sm-custom:hidden">
+    <div class="pills px-0 md:px-5 mb-8 xs:h-10 block hidden">
       <SelectInput
         :options="pills"
         v-model="selectedSkill"
