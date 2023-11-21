@@ -24,7 +24,7 @@
     </a>
     <a
       target="_blank"
-      href="https://www.linkedin.com/in/hanawazaki/"
+      href="https://www.linkedin.com/in/hairulnawazaki/"
       class="w-8 p-1 mr-3 mb-2 transition-all duration-300 ease-in-out hover:scale-105"
     >
       <img
