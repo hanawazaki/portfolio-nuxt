@@ -1,11 +1,9 @@
 <template>
-  <div class="px-4 md:px-[0px]">
+  <div class="container mx-auto">
     <Header />
-    <div class="container mx-auto">
-      <slot />
-    </div>
-    <Footer />
+    <slot />
   </div>
+  <Footer />
 </template>
 
 <script setup></script>

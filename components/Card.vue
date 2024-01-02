@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card relative mx-auto max-w-[385px] max-h-[520px] text-start w-auto rounded-xl mb-5 md:mb-10 border border-black transition-all duration-300 ease-in-out transform"
+    class="card relative mx-auto max-w-[385px] max-h-[520px] text-start w-auto rounded-xl mb-5 border border-black transition-all duration-300 ease-in-out transform"
   >
     <div class="flex h-auto absolute z-10 right-0 top-2">
       <a
@@ -26,9 +26,7 @@
         href="#"
         class="flex flex-row items-center gap-2 transition-all ease-in duration-150 hover:scale-105"
       >
-        <h4
-          class="card-title text-base font-medium my-3 lg:text-lg xxl:text-2xl"
-        >
+        <h4 class="card-title text-base font-medium my-3 lg:text-xl">
           {{ project.name }}
         </h4>
         <i
@@ -36,8 +34,10 @@
           class="text-base md:text-[1.25rem] md:leading-5 text-center"
         ></i>
       </a>
-      <p class="card-text text-xs lg:text-base">
-        {{ project.description }}
+      <p
+        class="card-text font-normal text-gray-600 text-xs lg:text-sm xl:text-base"
+      >
+        {{ truncateDesc(project.description, 100) }}
       </p>
       <div class="card-categories flex mt-8 items-center">
         <div
@@ -67,4 +67,8 @@ const props = defineProps({
     type: Object,
   },
 });
+
+const truncateDesc = (text, max) => {
+  return text.length > max ? text.slice(0, max - 3) + "...." : text;
+};
 </script>

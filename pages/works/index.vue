@@ -36,7 +36,7 @@
     </div>
     <div
       v-if="filteredProjects.length > 0"
-      class="projects__list grid grid-cols-1 sm:grid-cols-2 sm:gap-3 md:gap-5 md:grid-cols-3"
+      class="projects__list p-4 grid grid-cols-1 sm:grid-cols-3 md:space-x-5 lg:justify-center lg:space-x-6"
     >
       <Card
         v-for="(project, index) in filteredProjects"

@@ -1,8 +1,6 @@
 <template>
-  <header class="bg-white">
-    <nav
-      class="pt-12 items-center flex justify-between mx-auto max-w-7xl px-2 sm:px-6 lg:px-8"
-    >
+  <header class="container bg-white lg:px-[100px]">
+    <nav class="pt-12 items-center flex justify-between mx-auto p-4">
       <RouterLink class="logo" to="/">
         <img
           alt="logo"

@@ -1,7 +1,5 @@
 <template>
-  <header
-    class="navigation flex justify-between mx-[16px] mt-[16px] md:mx-[50px] lg:mx-[75px] xl:mx-[120px] md:mt-[50px]"
-  >
+  <header class="navigation flex justify-between mt-[16px] md:mt-[50px]">
     <div class="w-full mx-auto">
       <div class="flex items-center">
         <RouterLink

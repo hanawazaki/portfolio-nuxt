@@ -1,7 +1,7 @@
 <template>
   <div class="about mt-8 md:my-[75px]">
-    <div class="max-w-[1080px] mx-auto flex justify-between">
-      <div class="about-text w-7/12">
+    <div class="p-4 lg:px-[100px] mx-auto flex justify-between">
+      <div class="about-text w-full md:w-7/12">
         <h1 class="font-medium text-lg md:text-3xl md:w-700 mb-2 md:mb-4">
           About Me
         </h1>
@@ -20,7 +20,7 @@
           management and the ability to understand user/client desires.
         </p>
       </div>
-      <div class="about-image w-4/12">
+      <div class="about-image hidden md:block md:w-4/12">
         <img
           src="../../assets/images/cat-play.svg"
           alt="cat"
